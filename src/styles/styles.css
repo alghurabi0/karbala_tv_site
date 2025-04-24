@@ -1,0 +1,330 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rtl {
+    direction: rtl;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header styles */
+  .header {
+    position: relative;
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: #f5f5f5;
+    border-radius: 1.5rem;
+    margin: 1rem auto;
+    max-width: 1200px;
+  }
+  
+  .header-content {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .header-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Channel cards styles */
+  .channel-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .channel-cards {
+      flex-wrap: nowrap;
+    }
+  }
+  
+  .channel-card {
+    position: relative;
+    width: 256px;
+    height: 128px;
+    background-color: #e5e5e5;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .card-title {
+    color: white;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-label {
+    background-color: #dc2626;
+    color: white;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.25rem 0;
+  }
+  
+  /* Divider */
+  .divider {
+    height: 2px;
+    background-color: #dc2626;
+    width: 100%;
+  }
+  
+  /* Satellite section */
+  .satellite-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-bottom: 2px solid #dc2626;
+  }
+  
+  @media (min-width: 768px) {
+    .satellite-section {
+      flex-direction: row;
+    }
+  }
+  
+  .channel-logos {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .channel-logos {
+      margin-bottom: 0;
+    }
+  }
+  
+  .channel-logo {
+    height: 2rem;
+    width: auto;
+  }
+  
+  .satellite-dish {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .satellite-dish {
+      margin-bottom: 0;
+    }
+  }
+  
+  .dish-image {
+    height: 8rem;
+    width: auto;
+  }
+  
+  .satellite-info {
+    text-align: right;
+  }
+  
+  .info-title {
+    color: #dc2626;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #333333;
+  }
+  
+  /* Prayer section */
+  .prayer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .prayer-section {
+      flex-direction: row;
+    }
+  }
+  
+  .prayer-times {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .prayer-times {
+      margin-bottom: 0;
+    }
+  }
+  
+  .prayer-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .prayer-icon {
+    background-color: #2563eb;
+    border-radius: 50%;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .prayer-name {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+  
+  .prayer-time-value {
+    color: #dc2626;
+    font-weight: bold;
+  }
+  
+  .date-section {
+    text-align: right;
+  }
+  
+  .date-title {
+    color: #dc2626;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .location {
+    color: #666666;
+  }
+  
+  .current-date {
+    margin-top: 0.5rem;
+  }
+  
+  .day-name {
+    color: #dc2626;
+    font-size: 1.875rem;
+    font-weight: bold;
+  }
+  
+  .date-details {
+    color: #333333;
+  }
+  
+  .gregorian-date {
+    color: #666666;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    background-color: #dc2626;
+    color: white;
+    padding: 1rem 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+    }
+  }
+  
+  .qr-code {
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .qr-code {
+      margin-bottom: 0;
+    }
+  }
+  
+  .qr-image {
+    height: 5rem;
+    width: auto;
+  }
+  
+  .contact-email,
+  .contact-phone,
+  .website,
+  .copyright {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  
+  @media (min-width: 768px) {
+    .contact-email,
+    .contact-phone,
+    .website,
+    .copyright {
+      margin: 0;
+    }
+  }
+  
