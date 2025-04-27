@@ -7,24 +7,25 @@ import Footer from "../components/homepage/Footer";
 
 export default function HomePage() {
   return (
-    <div className="container">
-      {/* Header with Arabic calligraphy */}
-      <Header />
+    <>
+      <div className="container">
+        {/* Header with Arabic calligraphy */}
+        <Header />
 
-      {/* Channel Cards */}
-      <ChannelCards />
+        {/* Channel Cards */}
+        <ChannelCards />
 
-      {/* Red Divider */}
-      <div className="divider"></div>
+        {/* Red Divider */}
+        <div className="divider"></div>
 
-      {/* Satellite Info Section */}
-      <SatelliteInfoSection />
+        {/* Satellite Info Section */}
+        <SatelliteInfoSection />
 
-      {/* Prayer Times Section */}
-      <PrayerTimes />
-
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Prayer Times Section */}
+        <PrayerTimes />
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 }

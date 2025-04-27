@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ChannelCards() {
   return (
@@ -17,10 +18,12 @@ function ChannelCards() {
             main_image={"/images/quran.jpg"}
             overlay_image={"/images/quran-seq.png"}
           />
-          <ChannelCard
-            main_image={"/images/karbala_city.jpg"}
-            overlay_image={"/images/karbala-seq.png"}
-          />
+          <Link to={"/home"}>
+            <ChannelCard
+              main_image={"/images/karbala_city.jpg"}
+              overlay_image={"/images/karbala-seq.png"}
+            />
+          </Link>
         </div>
       </div>
     </>

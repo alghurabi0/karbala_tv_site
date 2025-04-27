@@ -6,7 +6,7 @@ function Header() {
       <header className="header">
         <div className="header-content">
           <img
-            src="/images/ktv_group.svg"
+            src="/images/ktv_group2.svg"
             alt="Arabic Calligraphy Header"
             width={900}
             height={200}

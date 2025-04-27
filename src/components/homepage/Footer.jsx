@@ -3,12 +3,12 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <img
-        src="/images/footer_doodle.svg"
-        alt="Footer Doodle"
-        className="footer-doodle"
-      />
       <footer className="footer">
+        <img
+          src="/images/footer_doodle.svg"
+          alt="Footer Doodle"
+          className="footer-doodle"
+        />
         <div className="footer-content">
           <div className="qr-code">
             <img
@@ -19,6 +19,7 @@ function Footer() {
               className="qr-image"
             />
           </div>
+          <div></div>
           <div className="contact-email">
             <p>info@karbala-tv.iq</p>
           </div>

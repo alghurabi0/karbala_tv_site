@@ -3,7 +3,15 @@ import React from "react";
 function SatelliteInfoSection() {
   return (
     <>
-      <div className="satellite-section">
+      <div className="satellite-section rtl">
+        <div className="satellite-info-dish">
+          {/* Satellite Info */}
+          <SatelliteInfo />
+
+          {/* Satellite Dish */}
+          <SatelliteDish />
+        </div>
+
         {/* Channel Logos */}
         <div className="channel-logos">
           <ChannelLogo logo={"/images/safeer-seq.png"} title={"Safeer"} />
@@ -15,12 +23,6 @@ function SatelliteInfoSection() {
           <ChannelLogo logo={"/images/quran-seq.png"} title={"Quran"} />
           <ChannelLogo logo={"/images/karbala-seq.png"} title={"Karbala"} />
         </div>
-
-        {/* Satellite Dish */}
-        <SatelliteDish />
-
-        {/* Satellite Info */}
-        <SatelliteInfo />
       </div>
     </>
   );
