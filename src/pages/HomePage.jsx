@@ -24,7 +24,9 @@ export default function HomePage() {
         {/* Prayer Times Section */}
         <PrayerTimes />
         {/* Footer */}
-        <Footer />
+        <div dir="rtl">
+          <Footer />
+        </div>
       </div>
     </>
   );

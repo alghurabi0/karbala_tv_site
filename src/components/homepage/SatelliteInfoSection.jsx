@@ -1,9 +1,12 @@
 import React from "react";
 
-function SatelliteInfoSection() {
+function SatelliteInfoSection({ isNavDropdown = false }) {
   return (
     <>
-      <div className="satellite-section rtl">
+      <div
+        className="satellite-section rtl"
+        style={isNavDropdown ? { width: "100%" } : {}}
+      >
         <div className="satellite-info-dish">
           {/* Satellite Info */}
           <SatelliteInfo />
@@ -13,16 +16,20 @@ function SatelliteInfoSection() {
         </div>
 
         {/* Channel Logos */}
-        <div className="channel-logos">
-          <ChannelLogo logo={"/images/safeer-seq.png"} title={"Safeer"} />
-          <ChannelLogo
-            logo={"/images/documentary-seq.png"}
-            title={"Documentary"}
-            extraClass={"documentary-logo"}
-          />
-          <ChannelLogo logo={"/images/quran-seq.png"} title={"Quran"} />
-          <ChannelLogo logo={"/images/karbala-seq.png"} title={"Karbala"} />
-        </div>
+        {isNavDropdown ? (
+          ""
+        ) : (
+          <div className="channel-logos">
+            <ChannelLogo logo={"/images/safeer-seq.png"} title={"Safeer"} />
+            <ChannelLogo
+              logo={"/images/documentary-seq.png"}
+              title={"Documentary"}
+              extraClass={"documentary-logo"}
+            />
+            <ChannelLogo logo={"/images/quran-seq.png"} title={"Quran"} />
+            <ChannelLogo logo={"/images/karbala-seq.png"} title={"Karbala"} />
+          </div>
+        )}
       </div>
     </>
   );

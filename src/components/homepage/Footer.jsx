@@ -19,19 +19,19 @@ function Footer() {
               className="qr-image"
             />
           </div>
-          <div></div>
-          <div className="contact-email">
-            <p>info@karbala-tv.iq</p>
-          </div>
-          <div className="contact-phone">
-            <p>+9647602002200</p>
+          <div className="copyright">
+            <p>© All Right Reserved 2024</p>
           </div>
           <div className="website">
             <p>www.karbala-tv.iq</p>
           </div>
-          <div className="copyright">
-            <p>© All Right Reserved 2024</p>
+          <div className="contact-phone">
+            <p>+9647602002200</p>
           </div>
+          <div className="contact-email">
+            <p>info@karbala-tv.iq</p>
+          </div>
+          <div></div>
         </div>
       </footer>
     </>
