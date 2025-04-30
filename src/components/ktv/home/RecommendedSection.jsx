@@ -69,7 +69,7 @@ function RecommendedSection() {
 
 export default RecommendedSection;
 
-function RecommendedCard({ item }) {
+export function RecommendedCard({ item }) {
   return (
     <>
       <div className="recommended-card">

@@ -80,7 +80,7 @@ function PopularPrograms() {
           منهاج البرامج التالية
         </button>
         {programs.map((program) => (
-          <PopularProgramTile
+          <ProgramTile
             key={program.id}
             time={program.time}
             title={program.title}
@@ -96,7 +96,7 @@ function PopularPrograms() {
   );
 }
 
-function PopularProgramTile({ img, time, title }) {
+export function ProgramTile({ img, time, title, isPopular = false }) {
   return (
     <>
       <div className="popular-program-tile">
@@ -105,14 +105,20 @@ function PopularProgramTile({ img, time, title }) {
         <div className="popular-program-tile-metadata">
           <div className="popular-program-tile-program-time">
             {/* برنامج */}
-            <p className="popular-program-tile-program">برنامج</p>
+            <p className="popular-program-tile-program">
+              {isPopular ? "البرنامج" : "البث المباشر"}
+            </p>
             {/* time with icon */}
-            <div className="popular-program-tile-time-icon">
-              {/* time */}
-              <p className="popular-program-tile-time">{time}</p>
-              {/* icon */}
-              <CiTimer color="red" />
-            </div>
+            {isPopular ? (
+              <div className="popular-program-tile-time-icon">
+                {/* time */}
+                <p className="popular-program-tile-time">{time}</p>
+                {/* icon */}
+                <CiTimer color="red" />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <p className="popular-program-tile-title">{title}</p>
         </div>

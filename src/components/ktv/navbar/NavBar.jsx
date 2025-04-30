@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import NavVisualLibrary from "./NavVisualLibrary";
 import SatelliteInfoSection from "../../homepage/SatelliteInfoSection";
 import NavAboutUs from "./NavAboutUs";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [isLiveHovered, setIsLiverHoveres] = useState(false);
@@ -61,7 +62,8 @@ function NavBar() {
         <div className="logo">
           <img src="/images/karbala-seq.png" alt="Karbala Logo" />
         </div>
-        <button
+        <Link
+          to={"/live"}
           className="live-button"
           onMouseEnter={() => setIsLiverHoveres(true)}
           onMouseLeave={() => setIsLiverHoveres(false)}
@@ -71,38 +73,39 @@ function NavBar() {
             className="satellite-icon"
             color={isLiveHovered ? "white" : "black"}
           />
-        </button>
-        <a href="#" className="nav-item">
+        </Link>
+        <Link to={"/home"} className="nav-item">
           <span>الرئيسية</span>
-        </a>
-        <a href="#" className="nav-item">
+        </Link>
+        <Link to={"/news"} className="nav-item">
           <span> الأخبار</span>
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to={"/visual-library"}
           className="nav-item nav-item-with-dropdown"
           onMouseEnter={() => handleHovering(true, "library")}
           onMouseLeave={() => handleHovering(false)}
         >
           <span> المكتبة المرئية</span>
           <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </a>
+        </Link>
         <a href="#" className="nav-item">
           <span> الصور</span>
         </a>
-        <a
-          href="#"
+        <Link
+          to={"/about-us"}
           className="nav-item nav-item-with-dropdown"
           onMouseEnter={() => handleHovering(true, "frequency")}
           onMouseLeave={() => handleHovering(false)}
         >
           <span> الترددات</span>
           <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </a>
+        </Link>
         <a href="#" className="nav-item">
           <span> لبيك يا حسين</span>
         </a>
-        <a
+        <Link
+          to={"/about-us"}
           href="#"
           className="nav-item nav-item-with-dropdown"
           onMouseEnter={() => handleHovering(true, "about-us")}
@@ -110,7 +113,7 @@ function NavBar() {
         >
           <span> من نحن</span>
           <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </a>
+        </Link>
 
         {/* Dropdown content */}
         <div

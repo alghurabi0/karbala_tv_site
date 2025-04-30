@@ -7,7 +7,7 @@ import NavBar from "../../components/ktv/navbar/NavBar";
 function Layout() {
   return (
     <>
-      <div className="container rtl">
+      <div className="ktv-container rtl">
         {/* TopBar, Date and search */}
         <TopBar />
         {/* Navigation bar */}
