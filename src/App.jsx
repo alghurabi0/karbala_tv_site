@@ -9,6 +9,8 @@ import NewsPostPage from "./pages/ktv/NewsPostPage";
 import LivePage from "./pages/ktv/LivePage";
 import AboutUsPage from "./pages/ktv/AboutUsPage";
 import VisualLibraryPage from "./pages/ktv/VisualLibraryPage";
+import ProgramsCurriculumPage from "./pages/ktv/ProgramsCurriculumPage";
+import GalleryPage from "./pages/ktv/GalleryPage";
 
 function App() {
   return (
@@ -22,10 +24,27 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/home" element={<KtvHomaPage />} />
             <Route path="/live" element={<LivePage />} />
+            <Route
+              path="/programs-curriculum"
+              element={<ProgramsCurriculumPage />}
+            />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:id" element={<NewsPostPage />} />
             <Route path="/visual-library" element={<VisualLibraryPage />} />
+            <Route
+              path="/visual-library/:category"
+              element={<VisualLibraryPage isInsideCategory={true} />}
+            />
+            <Route
+              path="/visual-library/:category/:program"
+              element={<VisualLibraryPage isInsideProgram={true} />}
+            />
+            <Route
+              path="/visual-library/:category/:program/:episodeId"
+              element={<VisualLibraryPage isInsideEpidose={true} />}
+            />
             <Route path="/frequencies" element={<AboutUsPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
           </Route>
         </Routes>

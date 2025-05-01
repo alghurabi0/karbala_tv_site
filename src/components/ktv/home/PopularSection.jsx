@@ -1,6 +1,7 @@
 import React from "react";
 import { RiArrowLeftDoubleLine } from "react-icons/ri";
 import { CiTimer } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 function PopularSection() {
   return (
@@ -87,10 +88,13 @@ function PopularPrograms() {
             img={program.img}
           />
         ))}
-        <button className="popular-programs-bottom-button">
+        <Link
+          to={"/programs-curriculum"}
+          className="popular-programs-bottom-button"
+        >
           <span>منهاج البرامج </span>
           <RiArrowLeftDoubleLine color="white" size={15} />
-        </button>
+        </Link>
       </section>
     </>
   );

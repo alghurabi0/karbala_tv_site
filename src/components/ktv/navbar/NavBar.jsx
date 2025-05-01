@@ -89,9 +89,9 @@ function NavBar() {
           <span> المكتبة المرئية</span>
           <MdArrowDropDown className="arrow-icon" color="black" size={20} />
         </Link>
-        <a href="#" className="nav-item">
+        <Link to={"/gallery"} className="nav-item">
           <span> الصور</span>
-        </a>
+        </Link>
         <Link
           to={"/about-us"}
           className="nav-item nav-item-with-dropdown"

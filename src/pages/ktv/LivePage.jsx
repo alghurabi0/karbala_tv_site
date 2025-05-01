@@ -26,7 +26,9 @@ function LivePage() {
       <div className="live-broadcast-container">
         <div className="main-content">
           {/* YouTube Video */}
-          <YouTubeVideo />
+          <YouTubeVideo
+            videoUrl={"https://www.youtube.com/embed/U6FjuGhsvsQ"}
+          />
 
           {/* Channels */}
           <div className="channels">
@@ -69,12 +71,12 @@ function LivePage() {
 
 export default LivePage;
 
-function YouTubeVideo() {
+export function YouTubeVideo({ videoUrl }) {
   return (
     <>
       <div className="video-container">
         <iframe
-          src="https://www.youtube.com/embed/U6FjuGhsvsQ"
+          src={videoUrl}
           title="Live broadcast"
           frameBorder="0"
           allowFullScreen
