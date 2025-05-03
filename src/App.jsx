@@ -11,6 +11,7 @@ import AboutUsPage from "./pages/ktv/AboutUsPage";
 import VisualLibraryPage from "./pages/ktv/VisualLibraryPage";
 import ProgramsCurriculumPage from "./pages/ktv/ProgramsCurriculumPage";
 import GalleryPage from "./pages/ktv/GalleryPage";
+import GalleryImagePage from "./pages/ktv/GalleryImagePage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             />
             <Route path="/frequencies" element={<AboutUsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery/:id" element={<GalleryImagePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
           </Route>
         </Routes>
