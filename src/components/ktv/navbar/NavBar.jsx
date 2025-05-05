@@ -8,7 +8,10 @@ import NavAboutUs from "./NavAboutUs";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const [isLiveHovered, setIsLiverHoveres] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileSubmenuOpen, setIsMobileSubmenuOpen] = useState(false);
+
+  // const [isLiveHovered, setIsLiverHoveres] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [content, setContent] = useState("");
   const timeoutRef = useRef(null);
@@ -62,60 +65,109 @@ function NavBar() {
         <div className="logo">
           <img src="/images/karbala-seq.png" alt="Karbala Logo" />
         </div>
-        <Link
-          to={"/live"}
-          className="live-button"
-          onMouseEnter={() => setIsLiverHoveres(true)}
-          onMouseLeave={() => setIsLiverHoveres(false)}
-        >
-          <span> البث المباشر</span>
-          <FaSatelliteDish
-            className="satellite-icon"
-            color={isLiveHovered ? "white" : "black"}
-          />
-        </Link>
-        <Link to={"/home"} className="nav-item">
-          <span>الرئيسية</span>
-        </Link>
-        <Link to={"/news"} className="nav-item">
-          <span> الأخبار</span>
-        </Link>
-        <Link
-          to={"/visual-library"}
-          className="nav-item nav-item-with-dropdown"
-          onMouseEnter={() => handleHovering(true, "library")}
-          onMouseLeave={() => handleHovering(false)}
-        >
-          <span> المكتبة المرئية</span>
-          <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </Link>
-        <Link to={"/gallery"} className="nav-item">
-          <span> الصور</span>
-        </Link>
-        <Link
-          to={"/about-us"}
-          className="nav-item nav-item-with-dropdown"
-          onMouseEnter={() => handleHovering(true, "frequency")}
-          onMouseLeave={() => handleHovering(false)}
-        >
-          <span> الترددات</span>
-          <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </Link>
-        <a href="#" className="nav-item">
-          <span> لبيك يا حسين</span>
-        </a>
-        <Link
-          to={"/about-us"}
-          href="#"
-          className="nav-item nav-item-with-dropdown"
-          onMouseEnter={() => handleHovering(true, "about-us")}
-          onMouseLeave={() => handleHovering(false)}
-        >
-          <span> من نحن</span>
-          <MdArrowDropDown className="arrow-icon" color="black" size={20} />
-        </Link>
 
-        {/* Dropdown content */}
+        {/* Hamburger icon for mobile */}
+        <div
+          className="hamburger"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+
+        <div className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+          {/* Main links */}
+          <Link to={"/live"} className="live-button">
+            <span> البث المباشر</span>
+            <FaSatelliteDish className="satellite-icon" />
+          </Link>
+          <Link to={"/home"} className="nav-item">
+            الرئيسية
+          </Link>
+          <Link to={"/news"} className="nav-item">
+            {" "}
+            الأخبار
+          </Link>
+
+          {/* Visual Library w/ submenu for mobile */}
+          <div className="nav-item nav-item-with-dropdown mobile-dropdown">
+            <div onClick={() => setIsMobileSubmenuOpen(!isMobileSubmenuOpen)}>
+              المكتبة المرئية <MdArrowDropDown />
+            </div>
+            {isMobileSubmenuOpen && (
+              <div className="mobile-submenu">
+                {[
+                  "مدون",
+                  "مراجع دينية",
+                  "برامج ثقافية",
+                  "تصاند والاشيد",
+                  "السرية والطفل",
+                  "الفائح لدين ألف",
+                  "تقارير",
+                  "وثائقيات",
+                  "عزاء بغداد",
+                ].map((title, idx) => (
+                  <p key={idx} className="nav-visual-library-category">
+                    {title}
+                  </p>
+                ))}
+              </div>
+            )}
+          </div>
+          <Link
+            to={"/visual-library"}
+            className="nav-item nav-item-with-dropdown desktop-dropdown"
+            onMouseEnter={() => handleHovering(true, "library")}
+            onMouseLeave={() => handleHovering(false)}
+          >
+            <span> المكتبة المرئية</span>
+            <MdArrowDropDown className="arrow-icon" size={20} />
+          </Link>
+
+          <Link to={"/gallery"} className="nav-item">
+            {" "}
+            الصور
+          </Link>
+          <Link
+            to={"/about-us"}
+            className="nav-item nav-item-with-dropdown desktop-dropdown"
+            onMouseEnter={() => handleHovering(true, "frequency")}
+            onMouseLeave={() => handleHovering(false)}
+          >
+            <span> الترددات</span>
+            <MdArrowDropDown className="arrow-icon" color="black" size={20} />
+          </Link>
+          <Link
+            to={"/about-us"}
+            className="nav-item nav-item-with-dropdown mobile-dropdown"
+          >
+            <span> الترددات</span>
+          </Link>
+          <a href="#" className="nav-item">
+            {" "}
+            لبيك يا حسين
+          </a>
+
+          <Link
+            to={"/about-us"}
+            href="#"
+            className="nav-item nav-item-with-dropdown desktop-dropdown"
+            onMouseEnter={() => handleHovering(true, "about-us")}
+            onMouseLeave={() => handleHovering(false)}
+          >
+            <span> من نحن</span>
+            <MdArrowDropDown className="arrow-icon" color="black" size={20} />
+          </Link>
+          <Link
+            to={"/about-us"}
+            href="#"
+            className="nav-item nav-item-with-dropdown mobile-dropdown"
+          >
+            <span> من نحن</span>
+          </Link>
+        </div>
+
         <div
           className={`nav-dropdown ${isHovered ? "open" : ""}`}
           onMouseEnter={handleDropdownEnter}
