@@ -77,7 +77,7 @@ export function RecommendedCard({ item }) {
         <div className="recommended-title">{item.title}</div>
         <div className="recommended-date">
           <span>{item.date}</span>
-          <FaRegCalendarAlt size={15} color="red" />
+          <FaRegCalendarAlt size={15} className="calendar-icon" />
         </div>
       </div>
     </>

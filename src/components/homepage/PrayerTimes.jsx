@@ -60,15 +60,17 @@ import React from "react";
 
 // export default PrayerTimes;
 
-const PrayerTime = ({ icon, name, time }) => {
+const PrayerTime = ({ icon, name, time, active = false }) => {
   return (
-    <div className="prayer-time">
-      <div className="prayer-icon">
-        <img src={icon || "/placeholder.svg"} alt={name} className="icon" />
+    <>
+      <div className="prayer-time">
+        <div className={`prayer-icon ${active ? "active-prayer-icon" : ""}`}>
+          <img src={icon || "/placeholder.svg"} alt={name} className="icon" />
+        </div>
+        <p className="prayer-name">{name}</p>
+        <p className="prayer-time-value">{time}</p>
       </div>
-      <p className="prayer-name">{name}</p>
-      <p className="prayer-time-value">{time}</p>
-    </div>
+    </>
   );
 };
 
@@ -108,7 +110,7 @@ const PrayerSection = () => {
     <div className="prayer-section-container">
       <div className="prayer-section">
         <div className="prayer-times">
-          {prayers.map((prayer, index) => (
+          {prayers.slice(0, 4).map((prayer, index) => (
             <PrayerTime
               key={index}
               icon={prayer.icon}
@@ -116,13 +118,17 @@ const PrayerSection = () => {
               time={prayer.time}
             />
           ))}
+          <PrayerTime
+            icon={prayers[4].icon}
+            name={prayers[4].name}
+            time={prayers[4].time}
+            active={true}
+          />
         </div>
 
         <div className="date-section">
           <p className="date-title">المواقيت الشرعية والطقس</p>
-          <p className="location rtl">
-            {/* <span>كربلاء المقدسة</span>
-            <span className="down-arrow">⌄</span> */}
+          <div className="location rtl">
             <select className="cities-select">
               {cities.map((city) => (
                 <option
@@ -134,7 +140,7 @@ const PrayerSection = () => {
                 </option>
               ))}
             </select>
-          </p>
+          </div>
           <div className="current-date">
             <div className="date-details">
               <div className="date1">2 أيار</div>

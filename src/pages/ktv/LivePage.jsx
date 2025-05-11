@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ProgramTile } from "../../components/ktv/home/PopularSection";
 import { FaVideo, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CiTimer } from "react-icons/ci";
 
 function LivePage() {
+  const carouselRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    }
+  };
   const liveChannels = [
     { name: "قناة القرآن الكريم الفضائية", image: "/images/quran.jpg" },
     { name: "قناة الوثائقية الفضائية", image: "/images/documentary.jpeg" },
@@ -11,6 +24,24 @@ function LivePage() {
   ];
 
   const programs = [
+    { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
+    { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
+    { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
+    { title: "جمال حول الكعبة", time: "14:30", image: "/images/quran.jpg" },
+    {
+      title: "سبيل المؤمنين",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+    },
+    { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
+    { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
+    { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
+    { title: "جمال حول الكعبة", time: "14:30", image: "/images/quran.jpg" },
+    {
+      title: "سبيل المؤمنين",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+    },
     { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
     { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
     { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
@@ -53,15 +84,15 @@ function LivePage() {
             منهاج البرامج ليوم / السبت / 2024/07/27
           </div>
           <div className="program-carousel-wrapper">
-            <FaChevronRight className="nav-icon" />
+            <FaChevronRight className="nav-icon" onClick={scrollRight} />
 
-            <div className="program-carousel">
+            <div className="program-carousel" ref={carouselRef}>
               {programs.map((prog, idx) => (
                 <ProgramCard key={idx} prog={prog} />
               ))}
             </div>
 
-            <FaChevronLeft className="nav-icon" />
+            <FaChevronLeft className="nav-icon" onClick={scrollLeft} />
           </div>
         </div>
       </div>

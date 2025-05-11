@@ -8,7 +8,7 @@ function Header() {
           <img
             src="/images/ktv_group2.svg"
             alt="Arabic Calligraphy Header"
-            width={900}
+            width={1100}
             height={200}
             className="header-image"
           />

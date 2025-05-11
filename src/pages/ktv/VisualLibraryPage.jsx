@@ -5,6 +5,7 @@ import { KtvTitle, KtvTitleReverse } from "./KtvHomaPage";
 import { RecommendedCard } from "../../components/ktv/home/RecommendedSection";
 import { Pagination } from "../../components/ktv/home/NewsSection";
 import { YouTubeVideo } from "./LivePage";
+import { FaRegCirclePlay } from "react-icons/fa6";
 
 function VisualLibraryPage({
   isInsideCategory = false,
@@ -334,7 +335,14 @@ function EpisodeCard() {
   return (
     <>
       <div className="episode-card">
-        <img className="episode-img" src="/images/karbala_city.jpg" />
+        <div className="episode-img-container">
+          <img className="episode-img" src="/images/karbala_city.jpg" />
+          <FaRegCirclePlay
+            className="episode-img-icon"
+            size={60}
+            color="white"
+          />
+        </div>
         <section className="episode-description">
           يوم 29-8-2024 - ما هو سر عداء البيت الاموي العنهم الله للبيت العلوي
           عليهم السلام

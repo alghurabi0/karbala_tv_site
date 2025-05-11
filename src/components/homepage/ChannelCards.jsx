@@ -7,7 +7,7 @@ function ChannelCards() {
       <div className="ch-back">
         <div className="channel-cards">
           <ChannelCard
-            main_image={"/images/safeer.png"}
+            main_image={"/images/safeer.webp"}
             overlay_image={"/images/safeer-seq.png"}
           />
           <ChannelCard

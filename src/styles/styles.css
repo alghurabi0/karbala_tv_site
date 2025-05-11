@@ -9,9 +9,14 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
-  font-family: "Cairo", Arial, Helvetica, sans-serif;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
   background-color: #ffffff;
+  font-style: normal;
   color: #505050;
   min-height: 100vh;
   display: flex;
@@ -34,16 +39,16 @@ body {
   /* Todo: add the background doodle */
   position: relative;
   width: 100%;
-  padding: 1.5rem 0;
+  padding-top: 1.5rem;
   border-radius: 1.5rem;
-  margin: 1rem auto;
+  margin: 0 auto;
   max-width: 1200px;
 }
 
 .header-content {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -65,6 +70,15 @@ body {
 @media (min-width: 768px) {
   .channel-cards {
     flex-wrap: nowrap;
+  }
+
+  .ch-back {
+    background: linear-gradient(
+      to top,
+      #f2f1f1 0%,
+      #f2f1f1 40%,
+      transparent 40%
+    );
   }
 }
 
@@ -108,15 +122,11 @@ body {
 
 .channel-card:hover .channel-card-main-image {
   filter: grayscale(0%);
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 0px 10px -5px rgb(136 136 136 / 50%);
 }
 
 .channel-card:hover .channel-card-overlay-image {
   filter: grayscale(0%);
-}
-
-.ch-back {
-  background: linear-gradient(to top, #f2f1f1 0%, #f2f1f1 40%, transparent 40%);
 }
 
 /* ------------------------ end channel cards ------------------------ */
@@ -258,7 +268,6 @@ body {
 }
 
 .prayer-icon {
-  background-color: #2563eb;
   border-radius: 50%;
   color: white;
   display: flex;
@@ -269,8 +278,8 @@ body {
 }
 
 .icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .prayer-name {
@@ -286,6 +295,17 @@ body {
   font-weight: bold;
   font-size: 0.875rem;
   margin-top: 0;
+}
+
+.active-prayer-icon {
+  border: 2px solid red;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.active-prayer-icon .icon {
+  width: 2.7rem;
+  height: 2.7rem;
 }
 
 .date-section {
@@ -307,6 +327,7 @@ body {
 .location {
   display: flex;
   align-items: center;
+  justify-content: start;
   margin-top: 0;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
@@ -325,8 +346,9 @@ body {
   background-image: url("/icons/down-chevron.svg");
   background-repeat: no-repeat;
   background-position: left 10px center;
-  background-size: 16px;
+  background-size: 10px;
   padding-left: 40px; /* Make space for custom arrow */
+  font-size: 1rem;
 }
 
 .cities-select:hover {
@@ -339,7 +361,6 @@ body {
 
 .city-option {
   background-color: #f2f1f1;
-  padding: 10px;
   font-size: 1rem;
   text-align: center;
 }
@@ -361,9 +382,7 @@ body {
   color: #dc2626;
   font-size: 1.5rem;
   font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: black;
-  text-decoration-thickness: 5px;
+  border-bottom: 7px solid #333333;
 }
 
 .date-details {
@@ -396,8 +415,18 @@ body {
   }
 
   .icon {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .active-prayer-icon {
+    width: 3.7rem;
+    height: 3.7rem;
+  }
+
+  .active-prayer-icon .icon {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   .prayer-name {
@@ -459,8 +488,18 @@ body {
   }
 
   .icon {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .active-prayer-icon {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+
+  .active-prayer-icon .icon {
+    width: 4.7rem;
+    height: 4.7rem;
   }
 
   .day-name {
@@ -510,6 +549,7 @@ body {
 @media (min-width: 768px) {
   .footer-content {
     flex-direction: row;
+    height: 40px;
   }
 
   .qr-code {
@@ -662,10 +702,25 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  padding-bottom: 2px;
+  transition: all 0.4s ease;
 }
 
-.nav-item:hover {
-  border-bottom: #d20e0d 3px solid;
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0; /* start from the right */
+  height: 3px;
+  width: 0;
+  background-color: #d20e0d;
+  transition: width 0.4s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  right: 0;
+  left: auto;
 }
 
 .nav-item:hover .arrow-icon {
@@ -674,14 +729,19 @@ body {
 }
 
 .live-button {
-  padding: 0.4rem 0.4rem;
+  padding: 0.2rem 0.4rem;
   border: 2px solid #d20e0d;
   color: #d20e0d;
   background: none;
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
+}
+
+.satellite-icon {
+  margin-right: 0.5rem;
+  color: black;
 }
 
 .live-button:hover {
@@ -689,8 +749,8 @@ body {
   color: white;
 }
 
-.satellite-icon {
-  margin-right: 0.5rem;
+.live-button:hover .satellite-icon {
+  color: white;
 }
 
 .logo {
@@ -713,9 +773,10 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  min-width: 600px;
-  max-width: 800px;
-  max-height: 300px;
+  /* min-width: 600px;
+  max-width: 1000px; */
+  width: 800px;
+  max-height: 260px;
   z-index: 10;
 }
 
@@ -725,10 +786,13 @@ body {
 
 /* {Nav visual library dropdown} */
 .nav-visual-library {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  column-gap: 40px;
+  column-gap: 40px; */
+  display: flex;
+  gap: 40px;
+  width: 100%;
 }
 
 .nav-dropdown-title {
@@ -811,15 +875,31 @@ body {
 }
 
 /* {nav visual library categories} */
+.nav-visual-library-categories {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
 .nav-visual-library-categories-list {
-  columns: 2;
+  /* columns: 2; */
+  column-width: 150px;
+  width: 100%; /* or a fixed min width like 300px */
+  height: 300px;
+  overflow-y: auto;
+  /* overflow-x: hidden; */
 }
 
 .nav-visual-library-category {
-  width: auto;
+  /* width: auto;
   border-radius: 30px;
   padding-right: 10px;
-  cursor: pointer;
+  cursor: pointer; */
+  white-space: normal;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .nav-visual-library-category:hover {
@@ -1024,19 +1104,37 @@ body {
   border-radius: 20px;
 }
 
-.popular-live-bottom-bar {
+.popular-live-bottom-bar-container {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.popular-live-button {
+  background: linear-gradient(to right, #920302, #d20e0d);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  padding: 4px 8px;
+  font-weight: 200;
+}
+
+.popular-live-bottom-bar {
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  padding: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-right: 7px solid #d20e0d;
+  padding-bottom: 10px;
 }
 
 .popular-live-text {
@@ -1047,22 +1145,6 @@ body {
 
 .popular-live-text .title {
   margin-right: 7px;
-  border-right: 4px solid #d20e0d;
-  padding-right: 10px;
-}
-
-.popular-live-button {
-  background: linear-gradient(to right, #920302, #d20e0d);
-  border: none;
-  color: white;
-  padding: 8px 8px;
-  margin-left: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 /* {popular next previous} */
@@ -1090,6 +1172,7 @@ body {
   height: 100%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  cursor: pointer;
 }
 
 .popular-next-bar {
@@ -1146,6 +1229,7 @@ body {
   height: 100%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  cursor: pointer;
 }
 
 .popular-previous-bar {
@@ -1209,6 +1293,7 @@ body {
   padding: 3px 10px;
   font: 1rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .popular-programs-top-button {
@@ -1221,6 +1306,7 @@ body {
   display: flex;
   align-items: center;
   border: none;
+  font-size: 0.7rem;
 }
 
 .popular-program-tile {
@@ -1230,6 +1316,13 @@ body {
   height: 70px;
   width: 100%;
   border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.popular-program-tile:hover {
+  transform: scale(1.03) translateX(-5px);
+  background-color: #dedede;
 }
 
 .popular-program-tile-img {
@@ -1246,7 +1339,8 @@ body {
   flex-grow: 1;
   margin-right: 7px;
   border-radius: 20px;
-  height: 100%;
+  padding: 10px 0;
+  height: 75%;
 }
 
 .popular-program-tile-program-time {
@@ -1394,6 +1488,7 @@ body {
   border-radius: 15px;
   padding: 5px 15px;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .news-footer div {
@@ -1461,12 +1556,14 @@ body {
 .news-card-line {
   margin-left: 5px;
   height: 3px;
-  width: 270px;
+  width: 0;
   transition: all 0.4s ease;
+  background-color: transparent;
 }
 
 .news-card:hover .news-card-line {
   background-color: #d20e0d;
+  width: 270px;
 }
 
 /* {image gallery} */
@@ -1585,6 +1682,14 @@ body {
   background-color: #d20e0d;
 }
 
+.calendar-icon {
+  color: red;
+}
+
+.recommended-card:hover .calendar-icon {
+  color: white;
+}
+
 .recommended-card:hover .recommended-title,
 .recommended-card:hover .recommended-date {
   color: white;
@@ -1634,7 +1739,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
   margin-top: 25px;
 }
 
@@ -1644,6 +1749,7 @@ body {
   gap: 25px;
   max-width: 1000px;
   width: 100%;
+  line-height: 1.8;
 }
 
 @media (max-width: 600px) {
@@ -2022,14 +2128,33 @@ body {
   background-color: #f5f5f5;
 }
 
+.episode-img-container {
+  position: relative;
+}
+
 .episode-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-bottom: 3px solid transparent;
+  transition: all 0.4s ease;
+}
+
+.episode-img-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.4s ease;
 }
 
 .episode-card:hover img {
-  border-bottom: 3px solid #d20e0d;
+  border-color: #d20e0d;
+}
+
+.episode-card:hover .episode-img-icon {
+  opacity: 0.5;
 }
 
 .episode-description {

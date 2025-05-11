@@ -34,13 +34,13 @@ function PopularLive() {
           alt="Karbala City"
           height={370}
         />
-        <div className="popular-live-bottom-bar">
-          <p className="popular-live-text">
-            <span className="program">برنامج</span>
-            <span> </span>
-            <span className="title">وصايا المعصومين</span>
-          </p>
+        <div className="popular-live-bottom-bar-container">
           <button className="popular-live-button">تشاهدون الان</button>
+          <div className="popular-live-bottom-bar">
+            <p className="popular-live-text">
+              <span className="title">وصايا المعصومين</span>
+            </p>
+          </div>
         </div>
       </section>
     </>
@@ -86,6 +86,7 @@ function PopularPrograms() {
             time={program.time}
             title={program.title}
             img={program.img}
+            isPopular={true}
           />
         ))}
         <Link
