@@ -66,7 +66,7 @@ function NavVisualLibrary() {
           <div className="nav-visual-library-categories-list">
             {categories.map((category) => (
               <p className="nav-visual-library-category" key={category.id}>
-                {category.title}
+                <span>{category.title}</span>
               </p>
             ))}
           </div>

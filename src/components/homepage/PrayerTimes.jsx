@@ -1,4 +1,5 @@
 import React from "react";
+import CustomDropdown from "./CustomDropdown";
 
 // function PrayerTimes() {
 //   return (
@@ -84,27 +85,27 @@ const PrayerSection = () => {
     { icon: "/icons/midnight-cir.png", name: "منتصف الليل", time: "11:16" },
   ];
 
-  const cities = [
-    { id: 1, name: "كربلاء المقدسة", value: "karbala" },
-    { id: 2, name: "بغداد", value: "baghdad" },
-    { id: 3, name: "البصرة", value: "basra" },
-    { id: 4, name: "النجف الأشرف", value: "najaf" },
-    { id: 5, name: "الموصل", value: "mosul" },
-    { id: 6, name: "أربيل", value: "erbil" },
-    { id: 7, name: "السليمانية", value: "sulaymaniyah" },
-    { id: 8, name: "دهوك", value: "duhok" },
-    { id: 9, name: "كركوك", value: "kirkuk" },
-    { id: 10, name: "الأنبار", value: "anbar" },
-    { id: 11, name: "ديالى", value: "diyala" },
-    { id: 12, name: "بابل", value: "babel" },
-    { id: 13, name: "واسط", value: "wasit" },
-    { id: 14, name: "ميسان", value: "maysan" },
-    { id: 15, name: "ذي قار", value: "thiqar" },
-    { id: 16, name: "المثنى", value: "muthanna" },
-    { id: 17, name: "القادسية", value: "qadisiyah" },
-    { id: 18, name: "صلاح الدين", value: "salahaddin" },
-    { id: 19, name: "نينوى", value: "ninawa" },
-  ];
+  // const cities = [
+  //   { id: 1, name: "كربلاء المقدسة", value: "karbala" },
+  //   { id: 2, name: "بغداد", value: "baghdad" },
+  //   { id: 3, name: "البصرة", value: "basra" },
+  //   { id: 4, name: "النجف الأشرف", value: "najaf" },
+  //   { id: 5, name: "الموصل", value: "mosul" },
+  //   { id: 6, name: "أربيل", value: "erbil" },
+  //   { id: 7, name: "السليمانية", value: "sulaymaniyah" },
+  //   { id: 8, name: "دهوك", value: "duhok" },
+  //   { id: 9, name: "كركوك", value: "kirkuk" },
+  //   { id: 10, name: "الأنبار", value: "anbar" },
+  //   { id: 11, name: "ديالى", value: "diyala" },
+  //   { id: 12, name: "بابل", value: "babel" },
+  //   { id: 13, name: "واسط", value: "wasit" },
+  //   { id: 14, name: "ميسان", value: "maysan" },
+  //   { id: 15, name: "ذي قار", value: "thiqar" },
+  //   { id: 16, name: "المثنى", value: "muthanna" },
+  //   { id: 17, name: "القادسية", value: "qadisiyah" },
+  //   { id: 18, name: "صلاح الدين", value: "salahaddin" },
+  //   { id: 19, name: "نينوى", value: "ninawa" },
+  // ];
 
   return (
     <div className="prayer-section-container">
@@ -129,7 +130,7 @@ const PrayerSection = () => {
         <div className="date-section">
           <p className="date-title">المواقيت الشرعية والطقس</p>
           <div className="location rtl">
-            <select className="cities-select">
+            {/* <select className="cities-select">
               {cities.map((city) => (
                 <option
                   className="city-option"
@@ -139,7 +140,8 @@ const PrayerSection = () => {
                   {city.name}
                 </option>
               ))}
-            </select>
+            </select> */}
+            <CustomDropdown />
           </div>
           <div className="current-date">
             <div className="date-details">

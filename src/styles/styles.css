@@ -334,41 +334,8 @@ body {
   text-align: center;
 }
 
-.cities-select {
-  appearance: none; /* Remove default arrow */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #f2f1f1;
-  border-radius: 30px;
-  width: 150px;
-  transition: background-color 0.3s ease;
-  border: none;
-  background-image: url("/icons/down-chevron.svg");
-  background-repeat: no-repeat;
-  background-position: left 10px center;
-  background-size: 10px;
-  padding-left: 40px; /* Make space for custom arrow */
-  font-size: 1rem;
-}
-
 .cities-select:hover {
   background-color: #dedede;
-}
-
-.cities-select:focus {
-  border: none;
-}
-
-.city-option {
-  background-color: #f2f1f1;
-  font-size: 1rem;
-  text-align: center;
-}
-
-.down-arrow {
-  color: red;
-  margin-bottom: 3px;
-  margin-right: 5px;
 }
 
 .current-date {
@@ -616,6 +583,87 @@ body {
   border-radius: 30px;
   padding: 0 5px;
   font-size: small;
+  display: flex;
+  align-items: center;
+}
+
+/* {TopBar Channels dropdown} */
+
+.dropdown-container {
+  position: relative;
+  direction: rtl;
+  width: 230px;
+}
+
+.dropdown-button {
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-icon {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+  font-weight: 500;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 1px 12px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #eaeaea;
+}
+
+.dropdown-item.with-border {
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-image {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.dropdown-text {
+  font-size: 14px;
+  color: #333;
 }
 
 @media (max-width: 740px) {
@@ -626,6 +674,8 @@ body {
   }
   .search-sites {
     margin-top: 15px;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -662,26 +712,6 @@ body {
   color: #aaa;
 }
 /* end {InputWithIcons} */
-
-/* {TopBar Sites} */
-.topbar-sites-select {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  width: 60px;
-}
-
-.topbar-sites-select:focus {
-  outline: none;
-}
-
-.topbar-sites-item {
-  background-color: #f2f1f1;
-  text-align: center;
-  color: #505050;
-}
 
 /* Navigation Bar*/
 .top-navbar {
@@ -884,29 +914,37 @@ body {
 }
 
 .nav-visual-library-categories-list {
-  /* columns: 2; */
-  column-width: 150px;
-  width: 100%; /* or a fixed min width like 300px */
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   overflow-y: auto;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
+  gap: 14px 32px; /* row gap and column gap */
+  align-content: flex-start;
+  height: 100%;
 }
 
 .nav-visual-library-category {
-  /* width: auto;
-  border-radius: 30px;
-  padding-right: 10px;
-  cursor: pointer; */
-  white-space: normal;
-  word-break: break-word;
-  max-width: 100%;
+  width: 150px; /* fixed width to form columns */
+  /* padding: 4px 8px; */
+  cursor: pointer;
+  border-right: 3px solid transparent;
+  font-size: 14px;
+}
+
+.nav-visual-library-category span {
+  margin-right: 6px;
+  padding: 4px;
+  border-radius: 6px;
 }
 
 .nav-visual-library-category:hover {
   color: #d20e0d;
+  border-color: #d20e0d;
+}
+
+.nav-visual-library-category:hover span {
   background-color: #dedede;
-  border-right: 3px #d20e0d solid;
-  font-weight: bold;
 }
 
 /* {nav about us} */
@@ -2556,5 +2594,124 @@ body {
   .image-info-image-container {
     align-self: center;
     max-width: 90%;
+  }
+}
+
+/* Satellite Section */
+.sat-section {
+  margin-top: 50px;
+  background: linear-gradient(to right, #f2f1f1, #ffffff, #f2f1f1),
+    url("/images/world_pattern.svg") no-repeat center/cover;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  position: relative;
+  padding: 2rem 3.7rem;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #333;
+  max-width: 1200px;
+  width: 100%;
+  height: 200px;
+}
+
+.sat-dish {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  z-index: 2;
+}
+
+.sat-info {
+  z-index: 3;
+  line-height: 0.8;
+}
+
+.sat-title {
+  color: #d20e0d;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sat-detail {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sat-line {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 3px;
+  background-color: #d20e0d;
+  width: 90%;
+}
+
+.sat-logos {
+  margin-top: 1rem;
+}
+
+.sat-logos img {
+  width: 80px;
+  margin-right: 14px;
+}
+
+@media (max-width: 990px) {
+  .sat-dish {
+    left: 60%;
+    display: n;
+  }
+}
+
+@media (max-width: 830px) {
+  .sat-section {
+    height: 270px;
+    flex-direction: column-reverse;
+  }
+
+  .sat-dish {
+    left: 20%;
+    top: 30%;
+  }
+
+  .sat-line {
+    top: 60%;
+    left: 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .sat-section {
+    height: 320px;
+  }
+}
+
+@media (max-width: 530px) {
+  .sat-section {
+    height: 370px;
+  }
+
+  .sat-line {
+    top: 43%;
+  }
+}
+
+@media (max-width: 430px) {
+  .sat-section {
+    height: 400px;
+    padding: 2rem 0.5rem;
+  }
+
+  /* .sat-dish {
+    display: none;
+  } */
+
+  .sat-line {
+    top: 40%;
   }
 }

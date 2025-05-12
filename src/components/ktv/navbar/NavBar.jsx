@@ -28,7 +28,8 @@ function NavBar() {
           setContent(<NavVisualLibrary />);
           break;
         case "frequency":
-          setContent(<SatelliteInfoSection isNavDropdown={true} />);
+          // setContent(<SatelliteInfoSection isNavDropdown={true} />);
+          setContent(<SatelliteNav />);
           break;
         case "about-us":
           setContent(<NavAboutUs />);
@@ -181,3 +182,24 @@ function NavBar() {
 }
 
 export default NavBar;
+
+export function SatelliteNav() {
+  return (
+    <div className="sat-section sat-section--compact">
+      <img
+        className="sat-dish"
+        src="/images/satellite_dish.svg"
+        alt="Dish"
+        style={{ top: "-40px", left: "20px", width: "140px" }}
+      />
+      <div className="sat-info">
+        <div className="sat-title">تردد المجموعة</div>
+        <div className="sat-detail">HD - نايل سات</div>
+        <div className="sat-detail">11258 - التردد</div>
+        <div className="sat-detail">Horizontal - الاستقطاب</div>
+        <div className="sat-detail">27,500 Msymb/s - الترميز</div>
+        <div className="sat-line"></div>
+      </div>
+    </div>
+  );
+}

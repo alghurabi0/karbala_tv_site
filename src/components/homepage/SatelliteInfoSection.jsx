@@ -76,3 +76,27 @@ function ChannelLogo({ logo, title, extraClass = "" }) {
     </>
   );
 }
+
+export function SatelliteHomepage() {
+  return (
+    <>
+      <div className="sat-section">
+        <img className="sat-dish" src="/images/satellite_dish.svg" alt="Dish" />
+        <div className="sat-logos">
+          <img src="/images/karbala-seq.png" />
+          <img src="/images/quran-seq.png" />
+          <img src="/images/documentary-seq.png" />
+          <img src="/images/safeer-seq.png" />
+        </div>
+        <div className="sat-info">
+          <div className="sat-title">تردد المجموعة</div>
+          <div className="sat-detail">HD - نايل سات</div>
+          <div className="sat-detail">التردد - 11258</div>
+          <div className="sat-detail">الاستقطاب - Horizontal</div>
+          <div className="sat-detail">الترميز - Msymb/s 27,500</div>
+        </div>
+        <div className="sat-line"></div>
+      </div>
+    </>
+  );
+}

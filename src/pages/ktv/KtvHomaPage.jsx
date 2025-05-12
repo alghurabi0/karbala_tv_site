@@ -1,6 +1,8 @@
 import React from "react";
 import PopularSection from "../../components/ktv/home/PopularSection";
-import SatelliteInfoSection from "../../components/homepage/SatelliteInfoSection";
+import SatelliteInfoSection, {
+  SatelliteHomepage,
+} from "../../components/homepage/SatelliteInfoSection";
 import { RiArrowLeftDoubleFill, RiArrowRightDoubleFill } from "react-icons/ri";
 import NewsSection from "../../components/ktv/home/NewsSection";
 import RecommendedSection from "../../components/ktv/home/RecommendedSection";
@@ -12,7 +14,8 @@ function KtvHomaPage() {
       {/* Popular Section */}
       <PopularSection />
       {/* Satellite Info Section */}
-      <SatelliteInfoSection />
+      {/* <SatelliteInfoSection /> */}
+      <SatelliteHomepage />
       {/* News Section */}
       <NewsSection isHome={true} />
       {/* Recommended Section */}

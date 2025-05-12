@@ -2,6 +2,7 @@ import React from "react";
 import InputWithIcons from "./InputWithIcons";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import ChannelDropdown from "./ChannelDropdown";
 
 function TopBar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -42,13 +43,14 @@ function TopBar() {
             </div>
 
             {/* Sites dropdown */}
-            <select className="topbar-sites-select">
+            {/* <select className="topbar-sites-select">
               <option value={""}>مواقعتا</option>
               <option className="topbar-sites-item">قناة كربلاء</option>
               <option className="topbar-sites-item">قناة كربلاء 2</option>
               <option className="topbar-sites-item">قناة كربلاء 3</option>
               <option className="topbar-sites-item">قناة كربلاء 4</option>
-            </select>
+            </select> */}
+            <ChannelDropdown />
             {/* */}
           </div>
         </div>

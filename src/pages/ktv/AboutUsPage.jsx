@@ -1,12 +1,16 @@
 import React from "react";
-import SatelliteInfoSection from "../../components/homepage/SatelliteInfoSection";
+import SatelliteInfoSection, {
+  SatelliteHomepage,
+} from "../../components/homepage/SatelliteInfoSection";
 
 function AboutUsPage() {
   return (
     <>
       <div className="about-us-page">
         {/* Satellite Section */}
-        <SatelliteInfoSection />
+        {/* <SatelliteInfoSection /> */}
+        <SatelliteAboutUs />
+        {/* <SatelliteHomepage /> */}
 
         {/* Content */}
         <div className="about-us-content">
@@ -102,3 +106,30 @@ function AboutUsPage() {
 }
 
 export default AboutUsPage;
+
+export function SatelliteAboutUs() {
+  return (
+    <>
+      <div
+        className="sat-section"
+        style={{ border: "none", background: "none" }}
+      >
+        <img className="sat-dish" src="/images/satellite_dish.svg" alt="Dish" />
+        <div className="sat-logos">
+          <img src="/images/karbala-seq.png" />
+          <img src="/images/quran-seq.png" />
+          <img src="/images/documentary-seq.png" />
+          <img src="/images/safeer-seq.png" />
+        </div>
+        <div className="sat-info">
+          <div className="sat-title">تردد المجموعة</div>
+          <div className="sat-detail">HD - نايل سات</div>
+          <div className="sat-detail">التردد - 11258</div>
+          <div className="sat-detail">الاستقطاب - Horizontal</div>
+          <div className="sat-detail">الترميز - Msymb/s 27,500</div>
+        </div>
+        <div className="sat-line" style={{ width: "100%" }}></div>
+      </div>
+    </>
+  );
+}
