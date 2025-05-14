@@ -29,7 +29,7 @@ export default function CustomDropdown() {
     <div
       style={{
         position: "relative",
-        width: "200px",
+        width: "130px",
         fontFamily: "Tajawal",
         direction: "rtl",
       }}
