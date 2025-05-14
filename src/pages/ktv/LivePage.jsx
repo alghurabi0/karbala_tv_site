@@ -1,22 +1,22 @@
-import React, { useRef } from "react";
+import React from "react";
 import { ProgramTile } from "../../components/ktv/home/PopularSection";
 import { FaVideo, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CiTimer } from "react-icons/ci";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function LivePage() {
-  const carouselRef = useRef(null);
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
+  const settings = {
+    dots: false,
+    infinite: false,
+    slidesToShow: 5,
+    slidesToScroll: 3,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    nextArrow: <SampleNextArrow />,
   };
 
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
-  };
   const liveChannels = [
     { name: "قناة القرآن الكريم الفضائية", image: "/images/quran.jpg" },
     { name: "قناة الوثائقية الفضائية", image: "/images/documentary.jpeg" },
@@ -78,22 +78,18 @@ function LivePage() {
           </div>
         </div>
 
-        {/* Program Schedule */}
-        <div className="program-schedule">
+        {/* <FaChevronRight className="nav-icon" onClick={scrollRight} />
+            <FaChevronLeft className="nav-icon" onClick={scrollLeft} /> */}
+
+        <div className="slider-container">
           <div className="schedule-title">
             منهاج البرامج ليوم / السبت / 2024/07/27
           </div>
-          <div className="program-carousel-wrapper">
-            <FaChevronRight className="nav-icon" onClick={scrollRight} />
-
-            <div className="program-carousel" ref={carouselRef}>
-              {programs.map((prog, idx) => (
-                <ProgramCard key={idx} prog={prog} />
-              ))}
-            </div>
-
-            <FaChevronLeft className="nav-icon" onClick={scrollLeft} />
-          </div>
+          <Slider {...settings}>
+            {programs.map((prog, idx) => (
+              <ProgramCard key={idx} prog={prog} />
+            ))}
+          </Slider>
         </div>
       </div>
     </>
@@ -131,5 +127,29 @@ function ProgramCard({ prog }) {
         </div>
       </div>
     </>
+  );
+}
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        backgroundColor: "red",
+        height: "100px",
+        marginBottom: "20px",
+        width: "40px",
+        borderTopRightRadius: "10px",
+        borderBottomRightRadius: "10px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onClick={onClick}
+    >
+      <FaChevronRight color="black" size={30} />
+    </div>
   );
 }

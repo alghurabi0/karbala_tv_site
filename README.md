@@ -7,3 +7,4 @@
 - [x] our websites select
 - [] Satelite section :(
 - [x] visual library nav
+- [] homepage footer

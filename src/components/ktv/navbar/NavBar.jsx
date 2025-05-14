@@ -3,7 +3,6 @@ import { FaSatelliteDish } from "react-icons/fa";
 import { MdArrowDropDown } from "react-icons/md";
 import { useState, useRef } from "react";
 import NavVisualLibrary from "./NavVisualLibrary";
-import SatelliteInfoSection from "../../homepage/SatelliteInfoSection";
 import NavAboutUs from "./NavAboutUs";
 import { Link } from "react-router-dom";
 

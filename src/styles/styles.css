@@ -867,6 +867,7 @@ body {
   transform-origin: center right;
   border-radius: 10px;
   cursor: pointer;
+  padding-right: 10px;
 }
 
 .nav-tile:hover {
@@ -1358,9 +1359,8 @@ body {
   transition: all 0.4s ease;
 }
 
-.popular-program-tile:hover {
-  transform: scale(1.03) translateX(-5px);
-  background-color: #dedede;
+.popular-program-tile:hover .popular-program-tile-metadata {
+  border-bottom-color: #d20e0d;
 }
 
 .popular-program-tile-img {
@@ -1372,13 +1372,14 @@ body {
   background: linear-gradient(to right, #f2f1f1, #ffffff, #f2f1f1);
   display: flex;
   flex-direction: column;
-  align-items: space-between;
   justify-content: center;
   flex-grow: 1;
   margin-right: 7px;
   border-radius: 20px;
-  padding: 10px 0;
   height: 75%;
+  padding-top: 5px;
+  padding-right: 5px;
+  border-bottom: 3px solid transparent;
 }
 
 .popular-program-tile-program-time {
@@ -1793,6 +1794,7 @@ body {
 @media (max-width: 600px) {
   .message {
     flex-wrap: wrap;
+    gap: 0px;
   }
 }
 
@@ -1880,7 +1882,11 @@ body {
   flex: 1;
 }
 
-.program-schedule {
+/* .program-schedule {
+  margin-top: 30px;
+} */
+
+.slider-container {
   margin-top: 30px;
 }
 
@@ -1888,31 +1894,6 @@ body {
   text-align: right;
   font-weight: bold;
   margin-bottom: 15px;
-}
-
-.program-carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  overflow: hidden;
-  padding: 0 1rem;
-}
-
-.program-carousel {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-
-.program-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
 }
 
 .program-card {
@@ -1929,16 +1910,41 @@ body {
   object-fit: cover;
 }
 
-.program-title {
-  font-weight: bold;
-  font-size: 14px;
-}
-
 .program-time {
   font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: end;
+}
+
+/* .program-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.program-carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.program-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.program-title {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .nav-icon {
@@ -1947,7 +1953,7 @@ body {
   user-select: none;
   background-color: #f5f5f5;
   border-radius: 10px;
-}
+} */
 
 @media (max-width: 768px) {
   .program-carousel-wrapper {
@@ -2600,8 +2606,10 @@ body {
 /* Satellite Section */
 .sat-section {
   margin-top: 50px;
-  background: linear-gradient(to right, #f2f1f1, #ffffff, #f2f1f1),
-    url("/images/world_pattern.svg") no-repeat center/cover;
+  background: url("/images/pattern.svg") no-repeat,
+    linear-gradient(to right, #f2f1f1, #ffffff, #f2f1f1);
+  background-size: cover;
+  background-position-y: center;
   border: 1px solid #ddd;
   border-radius: 20px;
   position: relative;
