@@ -77,10 +77,10 @@ function ChannelLogo({ logo, title, extraClass = "" }) {
   );
 }
 
-export function SatelliteHomepage() {
+export function SatelliteHomepage({ ktv = true }) {
   return (
     <>
-      <div className="sat-section">
+      <div className={ktv ? "sat-section" : "sat-section-home"}>
         <img className="sat-dish" src="/images/satellite_dish.svg" alt="Dish" />
         <div className="sat-logos">
           <img src="/images/karbala-seq.png" />

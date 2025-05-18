@@ -2,21 +2,12 @@ import React from "react";
 import { ProgramTile } from "../../components/ktv/home/PopularSection";
 import { FaVideo, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CiTimer } from "react-icons/ci";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+// import "swiper/css/navigation";
 
 function LivePage() {
-  const settings = {
-    dots: false,
-    infinite: false,
-    slidesToShow: 5,
-    slidesToScroll: 3,
-    autoplay: false,
-    autoplaySpeed: 2000,
-    nextArrow: <SampleNextArrow />,
-  };
-
   const liveChannels = [
     { name: "قناة القرآن الكريم الفضائية", image: "/images/quran.jpg" },
     { name: "قناة الوثائقية الفضائية", image: "/images/documentary.jpeg" },
@@ -78,18 +69,37 @@ function LivePage() {
           </div>
         </div>
 
-        {/* <FaChevronRight className="nav-icon" onClick={scrollRight} />
-            <FaChevronLeft className="nav-icon" onClick={scrollLeft} /> */}
-
         <div className="slider-container">
           <div className="schedule-title">
             منهاج البرامج ليوم / السبت / 2024/07/27
           </div>
-          <Slider {...settings}>
-            {programs.map((prog, idx) => (
-              <ProgramCard key={idx} prog={prog} />
-            ))}
-          </Slider>
+
+          <div className="slider-wrapper">
+            {/* Custom buttons */}
+            <div className="swiper-button-prev custom-prev">
+              <FaChevronRight size={24} />
+            </div>
+            <div className="swiper-button-next custom-next">
+              <FaChevronLeft size={24} />
+            </div>
+
+            {/* Swiper carousel */}
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={0}
+              slidesPerView={5}
+              navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev",
+              }}
+            >
+              {programs.map((prog, idx) => (
+                <SwiperSlide key={idx}>
+                  <ProgramCard prog={prog} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </>
@@ -127,29 +137,5 @@ function ProgramCard({ prog }) {
         </div>
       </div>
     </>
-  );
-}
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        backgroundColor: "red",
-        height: "100px",
-        marginBottom: "20px",
-        width: "40px",
-        borderTopRightRadius: "10px",
-        borderBottomRightRadius: "10px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      onClick={onClick}
-    >
-      <FaChevronRight color="black" size={30} />
-    </div>
   );
 }
