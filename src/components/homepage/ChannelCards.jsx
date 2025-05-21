@@ -12,18 +12,24 @@ function ChannelCards() {
               overlay_image={"/images/karbala-seq.png"}
             />
           </Link>
-          <ChannelCard
-            main_image={"/images/quran.jpg"}
-            overlay_image={"/images/quran-seq.png"}
-          />
-          <ChannelCard
-            main_image={"/images/documentary.jpg"}
-            overlay_image={"/images/documentary-seq.png"}
-          />
-          <ChannelCard
-            main_image={"/images/safeer.jpg"}
-            overlay_image={"/images/safeer-seq.png"}
-          />
+          <Link to={"https://www.karbala-tv.iq/quran/"}>
+            <ChannelCard
+              main_image={"/images/quran.jpg"}
+              overlay_image={"/images/quran-seq.png"}
+            />
+          </Link>
+          <Link to={"https://www.karbala-tv.iq/documentary/"}>
+            <ChannelCard
+              main_image={"/images/documentary.jpg"}
+              overlay_image={"/images/documentary-seq.png"}
+            />
+          </Link>
+          <Link to={"https://safeertv.com/"}>
+            <ChannelCard
+              main_image={"/images/safeer.jpg"}
+              overlay_image={"/images/safeer-seq.png"}
+            />
+          </Link>
         </div>
       </div>
     </>

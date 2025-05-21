@@ -918,7 +918,7 @@ body {
 
 .nav-tile-img {
   width: 100px;
-  height: 70px;
+  height: 59px;
   border-radius: 15px;
 }
 
@@ -959,6 +959,7 @@ body {
   cursor: pointer;
   border-right: 3px solid transparent;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .nav-visual-library-category span {
@@ -2064,6 +2065,10 @@ body {
   object-fit: cover;
 }
 
+.program-card img.active {
+  border-bottom: 3px solid #d20e0d;
+}
+
 .program-time {
   font-size: 12px;
   display: flex;
@@ -2401,7 +2406,6 @@ body {
   display: flex;
   gap: 15px;
   width: 100%;
-  max-height: 140px;
 }
 
 .program .time-container {
@@ -2796,7 +2800,7 @@ body {
   flex-direction: row;
   border: none;
   margin-top: 0;
-  background: url(/images/pattern.svg) no-repeat;
+  background: url(/images/pattern3.svg) no-repeat;
   background-size: auto;
   background-position-y: center;
   background-position-x: right;

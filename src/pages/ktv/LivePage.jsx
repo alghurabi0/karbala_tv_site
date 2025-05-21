@@ -1,4 +1,3 @@
-import React from "react";
 import { ProgramTile } from "../../components/ktv/home/PopularSection";
 import { FaVideo, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CiTimer } from "react-icons/ci";
@@ -16,32 +15,95 @@ function LivePage() {
   ];
 
   const programs = [
-    { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
-    { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
-    { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
-    { title: "جمال حول الكعبة", time: "14:30", image: "/images/quran.jpg" },
     {
-      title: "سبيل المؤمنين",
+      title: "عطاء الوالدين",
       time: "14:30",
-      image: "/images/documentary.jpeg",
+      image: "/images/quran.jpg",
+      active: true,
     },
-    { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
-    { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
-    { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
-    { title: "جمال حول الكعبة", time: "14:30", image: "/images/quran.jpg" },
     {
-      title: "سبيل المؤمنين",
+      title: "هكذا نحب",
       time: "14:30",
       image: "/images/documentary.jpeg",
+      active: false,
     },
-    { title: "عطاء الوالدين", time: "14:30", image: "/images/quran.jpg" },
-    { title: "هكذا نحب", time: "14:30", image: "/images/documentary.jpeg" },
-    { title: "عطاء", time: "14:30", image: "/images/safeer.png" },
-    { title: "جمال حول الكعبة", time: "14:30", image: "/images/quran.jpg" },
+    {
+      title: "عطاء",
+      time: "14:30",
+      image: "/images/safeer.png",
+      active: false,
+    },
+    {
+      title: "جمال حول الكعبة",
+      time: "14:30",
+      image: "/images/quran.jpg",
+      active: false,
+    },
     {
       title: "سبيل المؤمنين",
       time: "14:30",
       image: "/images/documentary.jpeg",
+      active: false,
+    },
+    {
+      title: "عطاء الوالدين",
+      time: "14:30",
+      image: "/images/quran.jpg",
+      active: false,
+    },
+    {
+      title: "هكذا نحب",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+      active: false,
+    },
+    {
+      title: "عطاء",
+      time: "14:30",
+      image: "/images/safeer.png",
+      active: false,
+    },
+    {
+      title: "جمال حول الكعبة",
+      time: "14:30",
+      image: "/images/quran.jpg",
+      active: false,
+    },
+    {
+      title: "سبيل المؤمنين",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+      active: false,
+    },
+    {
+      title: "عطاء الوالدين",
+      time: "14:30",
+      image: "/images/quran.jpg",
+      active: false,
+    },
+    {
+      title: "هكذا نحب",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+      active: false,
+    },
+    {
+      title: "عطاء",
+      time: "14:30",
+      image: "/images/safeer.png",
+      active: false,
+    },
+    {
+      title: "جمال حول الكعبة",
+      time: "14:30",
+      image: "/images/quran.jpg",
+      active: false,
+    },
+    {
+      title: "سبيل المؤمنين",
+      time: "14:30",
+      image: "/images/documentary.jpeg",
+      active: false,
     },
   ];
   return (
@@ -143,7 +205,11 @@ function ProgramCard({ prog }) {
   return (
     <>
       <div className="program-card">
-        <img src={prog.image} alt={prog.title} />
+        <img
+          src={prog.image}
+          alt={prog.title}
+          className={prog.active ? "active" : ""}
+        />
         <div className="program-info">
           {/* <div className="program-title">{prog.title}</div> */}
           <div className="program-time">

@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const channels = [
-  { name: "قناة القرآن الكريم الفضائية", image: "/images/quran-seq.png" },
-  { name: "قناة الوثائقية الفضائية", image: "/images/documentary-seq.png" },
-  { name: "قناة السفير الفضائية", image: "/images/safeer-seq.png" },
+  {
+    name: "قناة القرآن الكريم الفضائية",
+    image: "/images/quran-seq.png",
+    url: "https://www.karbala-tv.iq/quran/",
+  },
+  {
+    name: "قناة الوثائقية الفضائية",
+    image: "/images/documentary-seq.png",
+    url: "https://www.karbala-tv.iq/documentary/",
+  },
+  {
+    name: "قناة السفير الفضائية",
+    image: "/images/safeer-seq.png",
+    url: "https://safeertv.com/",
+  },
 ];
 
 export default function ChannelDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("مواقعنا");
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
-
-  const handleSelect = (channel) => {
-    setSelected(channel.name);
-    setIsOpen(false);
-  };
 
   return (
     <div className="dropdown-container">
       <div className="dropdown-button" onClick={toggleDropdown}>
-        <span>{selected}</span>
+        <span>موافعنا</span>
         <FaChevronDown
           className={`dropdown-icon ${isOpen ? "rotate" : ""}`}
           size={10}
@@ -30,12 +37,13 @@ export default function ChannelDropdown() {
 
       <div className={`dropdown-menu ${isOpen ? "show" : ""}`}>
         {channels.map((channel, index) => (
-          <div
+          <a
+            href={channel.url}
+            target="_blank"
             key={channel.name}
             className={`dropdown-item ${
               index !== channels.length - 1 ? "with-border" : ""
             }`}
-            onClick={() => handleSelect(channel)}
           >
             <img
               src={channel.image}
@@ -43,7 +51,7 @@ export default function ChannelDropdown() {
               className="dropdown-image"
             />
             <span className="dropdown-text">{channel.name}</span>
-          </div>
+          </a>
         ))}
       </div>
     </div>
