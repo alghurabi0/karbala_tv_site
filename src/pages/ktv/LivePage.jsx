@@ -3,7 +3,7 @@ import { ProgramTile } from "../../components/ktv/home/PopularSection";
 import { FaVideo, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CiTimer } from "react-icons/ci";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 // import "swiper/css/navigation";
 
@@ -69,38 +69,51 @@ function LivePage() {
           </div>
         </div>
 
-        <div className="slider-container">
-          <div className="schedule-title">
-            منهاج البرامج ليوم / السبت / 2024/07/27
-          </div>
-
-          <div className="slider-wrapper">
-            {/* Custom buttons */}
-            <div className="swiper-button-prev custom-prev">
-              <FaChevronRight size={24} />
-            </div>
-            <div className="swiper-button-next custom-next">
-              <FaChevronLeft size={24} />
-            </div>
-
-            {/* Swiper carousel */}
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={0}
-              slidesPerView={5}
-              navigation={{
-                nextEl: ".custom-next",
-                prevEl: ".custom-prev",
-              }}
-            >
-              {programs.map((prog, idx) => (
-                <SwiperSlide key={idx}>
-                  <ProgramCard prog={prog} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+        {/* <div className="slider-container"> */}
+        <div className="schedule-title">
+          منهاج البرامج ليوم / السبت / 2024/07/27
         </div>
+
+        <div className="slider-wrapper">
+          {/* Custom buttons */}
+          <div className="swiper-button-prev custom-prev">
+            <FaChevronRight size={24} />
+          </div>
+          <div className="swiper-button-next custom-next">
+            <FaChevronLeft size={24} />
+          </div>
+
+          {/* Swiper carousel */}
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={0}
+            breakpoints={{
+              0: {
+                slidesPerView: 3,
+              },
+              550: {
+                slidesPerView: 4,
+              },
+              943: {
+                slidesPerView: 4,
+              },
+              1140: {
+                slidesPerView: 5,
+              },
+            }}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+          >
+            {programs.map((prog, idx) => (
+              <SwiperSlide key={idx}>
+                <ProgramCard prog={prog} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        {/* </div> */}
       </div>
     </>
   );
@@ -139,3 +152,7 @@ function ProgramCard({ prog }) {
     </>
   );
 }
+
+// 1140 - 4 slides - 800px
+// 943 - 3 slides - 600px
+// 750 500px

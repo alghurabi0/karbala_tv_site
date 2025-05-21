@@ -1,10 +1,12 @@
-import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MasonryPhotoAlbum } from "react-photo-album";
 import "react-photo-album/masonry.css";
 import { KtvTitleReverse } from "./KtvHomaPage";
 import { MdDownloadForOffline } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
 
 function GalleryPage() {
   return (
@@ -37,6 +39,17 @@ function ImageCarousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Autoplay
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prevIndex) =>
+  //       prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //     );
+  //   }, 3000); // Change image every 3 seconds
+
+  //   return () => clearInterval(interval); // Cleanup on unmount
+  // }, [images.length]);
+
   return (
     <div className="carousel-container">
       <div className="main-image-container">
@@ -55,7 +68,48 @@ function ImageCarousel() {
         </svg>
       </div>
 
-      <div className="thumbnails-row">
+      <Swiper
+        slidesPerView={5}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+          },
+          365: {
+            slidesPerView: 3,
+          },
+          615: {
+            slidesPerView: 4,
+          },
+          965: {
+            slidesPerView: 5,
+          },
+        }}
+        autoplay={true}
+        onAutoplay={(e) => setCurrentIndex(e.activeIndex)}
+        navigation={true}
+        modules={[Navigation, Autoplay]}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide>
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`thumbnail-button ${
+                currentIndex === index ? "active" : ""
+              }`}
+              style={{ "--i": index }}
+            >
+              <img
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                className="thumbnail-image"
+              />
+            </button>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* <div className="thumbnails-row">
         {images.map((image, index) => (
           <button
             key={index}
@@ -72,7 +126,7 @@ function ImageCarousel() {
             />
           </button>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -81,7 +135,9 @@ function KtvLense() {
   return (
     <>
       <div className="ktv-lense">
-        <MdDownloadForOffline size={25} color="white" />
+        <div className="ktv-lense-logo">
+          <img src="/icons/karbala.png" />
+        </div>
         <p>عدسة فناة كربلاء الفضائية</p>
       </div>
     </>

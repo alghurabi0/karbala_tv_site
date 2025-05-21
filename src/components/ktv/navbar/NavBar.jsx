@@ -59,12 +59,17 @@ function NavBar() {
     }, 300);
   };
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileSubmenuOpen(false); // Optional: also close the submenu
+  };
+
   return (
     <>
       <nav className="top-navbar">
-        <div className="logo">
+        <Link to={"/home"} className="logo">
           <img src="/images/karbala-seq.png" alt="Karbala Logo" />
-        </div>
+        </Link>
 
         {/* Hamburger icon for mobile */}
         <div
@@ -78,15 +83,14 @@ function NavBar() {
 
         <div className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
           {/* Main links */}
-          <Link to={"/live"} className="live-button">
+          <Link to={"/live"} className="live-button" onClick={handleLinkClick}>
             <span> البث المباشر</span>
             <FaSatelliteDish className="satellite-icon" />
           </Link>
-          <Link to={"/home"} className="nav-item">
+          <Link to={"/home"} className="nav-item" onClick={handleLinkClick}>
             الرئيسية
           </Link>
-          <Link to={"/news"} className="nav-item">
-            {" "}
+          <Link to={"/news"} className="nav-item" onClick={handleLinkClick}>
             الأخبار
           </Link>
 
@@ -108,9 +112,14 @@ function NavBar() {
                   "وثائقيات",
                   "عزاء بغداد",
                 ].map((title, idx) => (
-                  <p key={idx} className="nav-visual-library-category">
+                  <Link
+                    to={`/visual-library/${title}`}
+                    key={idx}
+                    className="nav-visual-library-category link-reset"
+                    onClick={handleLinkClick}
+                  >
                     {title}
-                  </p>
+                  </Link>
                 ))}
               </div>
             )}
@@ -125,7 +134,7 @@ function NavBar() {
             <MdArrowDropDown className="arrow-icon" size={20} />
           </Link>
 
-          <Link to={"/gallery"} className="nav-item">
+          <Link to={"/gallery"} className="nav-item" onClick={handleLinkClick}>
             {" "}
             الصور
           </Link>
@@ -134,20 +143,25 @@ function NavBar() {
             className="nav-item nav-item-with-dropdown desktop-dropdown"
             onMouseEnter={() => handleHovering(true, "frequency")}
             onMouseLeave={() => handleHovering(false)}
+            onClick={handleLinkClick}
           >
             <span> الترددات</span>
             <MdArrowDropDown className="arrow-icon" color="black" size={20} />
           </Link>
           <Link
             to={"/about-us"}
+            onClick={handleLinkClick}
             className="nav-item nav-item-with-dropdown mobile-dropdown"
           >
             <span> الترددات</span>
           </Link>
-          <a href="#" className="nav-item">
-            {" "}
+          <Link
+            to={"/labayk_ya_husayn"}
+            className="nav-item"
+            onClick={handleLinkClick}
+          >
             لبيك يا حسين
-          </a>
+          </Link>
 
           <Link
             to={"/about-us"}
@@ -160,6 +174,7 @@ function NavBar() {
             <MdArrowDropDown className="arrow-icon" color="black" size={20} />
           </Link>
           <Link
+            onClick={handleLinkClick}
             to={"/about-us"}
             href="#"
             className="nav-item nav-item-with-dropdown mobile-dropdown"
@@ -185,12 +200,7 @@ export default NavBar;
 export function SatelliteNav() {
   return (
     <div className="sat-section sat-section--compact">
-      <img
-        className="sat-dish"
-        src="/images/satellite_dish.svg"
-        alt="Dish"
-        style={{ top: "-40px", left: "20px", width: "140px" }}
-      />
+      <img className="sat-dish" src="/images/satellite_dish.svg" alt="Dish" />
       <div className="sat-info">
         <div className="sat-title">تردد المجموعة</div>
         <div className="sat-detail">HD - نايل سات</div>

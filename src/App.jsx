@@ -12,6 +12,7 @@ import VisualLibraryPage from "./pages/ktv/VisualLibraryPage";
 import ProgramsCurriculumPage from "./pages/ktv/ProgramsCurriculumPage";
 import GalleryPage from "./pages/ktv/GalleryPage";
 import GalleryImagePage from "./pages/ktv/GalleryImagePage";
+import LabaykYaHusayn from "./pages/ktv/LabaykYaHusayn";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
 
           {/* KTV routes */}
           <Route element={<Layout />}>
-            <Route path="/home" element={<KtvHomaPage />} />
             <Route path="/live" element={<LivePage />} />
+            <Route path="/home" element={<KtvHomaPage />} />
             <Route
               path="/programs-curriculum"
               element={<ProgramsCurriculumPage />}
@@ -44,9 +45,10 @@ function App() {
               path="/visual-library/:category/:program/:episodeId"
               element={<VisualLibraryPage isInsideEpidose={true} />}
             />
-            <Route path="/frequencies" element={<AboutUsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/gallery/:id" element={<GalleryImagePage />} />
+            <Route path="/frequencies" element={<AboutUsPage />} />
+            <Route path="/labayk_ya_husayn" element={<LabaykYaHusayn />} />
             <Route path="/about-us" element={<AboutUsPage />} />
           </Route>
         </Routes>

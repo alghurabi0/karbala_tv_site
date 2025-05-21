@@ -11,7 +11,7 @@ function NewsSection({ isHome = false, isInsidePost = false }) {
         "/images/quran.jpg",
       ],
       title: "مدينة كربلاء المقدسة تتوشح بالسواد استقبالاً لشهر المحرم الحرام",
-      content: `أكمل أصحاب المواكب والمجالس الحسينية في كربلاء المقدسة استعداداتهم لاستقبال شهر المحرم الحرام وإحياء المناسك الحسينية، حيث بدأت المواكب بنصب سرادقات عزائها المعروفة باسم (النكبات)، إضافة إلى المواكب الخدمية لمعروفة باسم (النكبات)، إضافة إلى المواكب الخدمية والعزائية التي تحرص على إحياء عزاء سيد المعروفة باسم (النكبات)، إضافة إلى المواكب الخدمية والعزائية التي تحرص على إحياء عزاء سيدالخدمية والعزائية التي تحرص على إحياء عزاء سيد والعزائية التي تحرص على إحياء عزاء سيد الشهداء الخدمية والعزائية التي تحرص على إحياء عزاء سيد والعزائية التي تحرص على إحياء عزاء سيد الشهداء والعزائية التي تحرص على إحياء عزاء سيد الشهداء (عليه السلام).`,
+      content: `أكمل أصحاب المواكب والمجالس الحسينية في كربلاء المقدسة استعداداتهم لاستقبال شهر المحرم الحرام وإحياء المناسك الحسينية، حيث بدأت المواكب بنصبمية لمعروفة باسم (النكبات)، إضافة إلى اات)،ياء عزاء سيد والعزداء (عليه السلام).`,
       date: "2024/07/03",
     },
     items: [
@@ -63,19 +63,23 @@ function NewsSection({ isHome = false, isInsidePost = false }) {
         {/* Featured */}
         <div className="news-featured">
           <div className="news-featured-text">
-            <h2>{newsData.featured.title}</h2>
-            <p>{newsData.featured.content}</p>
-            <div className="news-footer">
-              {isHome ? <button>المزيد</button> : ""}
-              <div>
-                <span>{newsData.featured.date}</span>
-                <FaRegCalendarAlt size={15} color="red" />
-              </div>
+            <div>
+              <h2>{newsData.featured.title}</h2>
+              <p>{newsData.featured.content}</p>
             </div>
-            <div className="news-footer-line" />
+            <div>
+              <div className="news-footer">
+                {isHome ? <button>المزيد</button> : ""}
+                <div>
+                  <span>{newsData.featured.date}</span>
+                  <FaRegCalendarAlt size={15} color="red" />
+                </div>
+              </div>
+              <div className="news-footer-line" />
+            </div>
           </div>
           {isHome ? (
-            <img src={activeImage} alt="Featured News" />
+            <img src={activeImage} alt="Featured News" className="main-image" />
           ) : (
             <div className="news-gallery">
               <img src={activeImage} alt="Main" className="main-image" />

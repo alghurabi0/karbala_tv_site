@@ -6,24 +6,24 @@ function ChannelCards() {
     <>
       <div className="ch-back">
         <div className="channel-cards">
-          <ChannelCard
-            main_image={"/images/safeer.jpg"}
-            overlay_image={"/images/safeer-seq.png"}
-          />
-          <ChannelCard
-            main_image={"/images/documentary.jpg"}
-            overlay_image={"/images/documentary-seq.png"}
-          />
-          <ChannelCard
-            main_image={"/images/quran.jpg"}
-            overlay_image={"/images/quran-seq.png"}
-          />
           <Link to={"/home"}>
             <ChannelCard
               main_image={"/images/karbala_city.jpg"}
               overlay_image={"/images/karbala-seq.png"}
             />
           </Link>
+          <ChannelCard
+            main_image={"/images/quran.jpg"}
+            overlay_image={"/images/quran-seq.png"}
+          />
+          <ChannelCard
+            main_image={"/images/documentary.jpg"}
+            overlay_image={"/images/documentary-seq.png"}
+          />
+          <ChannelCard
+            main_image={"/images/safeer.jpg"}
+            overlay_image={"/images/safeer-seq.png"}
+          />
         </div>
       </div>
     </>
