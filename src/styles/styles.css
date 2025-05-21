@@ -2404,11 +2404,22 @@ body {
   max-height: 140px;
 }
 
-.program .time {
+.program .time-container {
   align-self: center;
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.program .live-text {
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 2px 4px;
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .program .time-text {
@@ -2918,4 +2929,17 @@ body {
 
 .labayk-container {
   max-width: 1200px;
+}
+
+/* --------------------------------- */
+.program.active .play-logo {
+  color: red;
+}
+
+.program.active .clock-logo {
+  color: red;
+}
+
+.program.active .time-text {
+  font-weight: bold;
 }
