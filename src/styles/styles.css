@@ -2947,3 +2947,120 @@ body {
 .program.active .time-text {
   font-weight: bold;
 }
+
+/* ----------------Message Form----------------- */
+.messages-form-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  color: black;
+  border: 3px solid #f5f5f5;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.messages-form .form-group {
+  margin-bottom: 20px;
+}
+
+.messages-form input,
+.messages-form select,
+.messages-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: black;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+}
+
+.messages-form input::placeholder,
+.messages-form textarea::placeholder,
+.messages-form select {
+  color: black;
+}
+
+.messages-form select {
+  background-color: #f5f5f5;
+}
+
+.captcha-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.captcha-group img {
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-actions button {
+  background-color: #d20e0d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* === Responsive Styling === */
+@media (max-width: 768px) {
+  .messages-form-section {
+    padding: 20px;
+    margin: 30px 10px;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+  .captcha-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .captcha-group img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .form-actions button {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-title {
+    font-size: 18px;
+  }
+
+  .messages-form input,
+  .messages-form textarea,
+  .messages-form select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-actions button {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
