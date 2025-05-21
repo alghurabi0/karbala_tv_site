@@ -27,7 +27,7 @@ function App() {
             <Route path="/live" element={<LivePage />} />
             <Route path="/home" element={<KtvHomaPage />} />
             <Route
-              path="/programs-curriculum"
+              path="/programs-schedule"
               element={<ProgramsCurriculumPage />}
             />
             <Route path="/news" element={<NewsPage />} />

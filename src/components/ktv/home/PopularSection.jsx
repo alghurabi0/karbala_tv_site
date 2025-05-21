@@ -90,7 +90,7 @@ function PopularPrograms() {
           />
         ))}
         <Link
-          to={"/programs-curriculum"}
+          to={"/programs-schedule"}
           className="popular-programs-bottom-button"
         >
           <span>منهاج البرامج </span>

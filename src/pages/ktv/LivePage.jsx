@@ -5,6 +5,7 @@ import { CiTimer } from "react-icons/ci";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
+import ProgramsCurriculumPage from "./ProgramsCurriculumPage";
 // import "swiper/css/navigation";
 
 function LivePage() {
@@ -115,6 +116,8 @@ function LivePage() {
         </div>
         {/* </div> */}
       </div>
+
+      <ProgramsCurriculumPage />
     </>
   );
 }
