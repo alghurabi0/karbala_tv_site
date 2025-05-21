@@ -1,6 +1,7 @@
 import React from "react";
 import MessagesSection from "../../components/ktv/home/MessagesSection";
 import { Pagination } from "../../components/ktv/home/NewsSection";
+import { Divide } from "lucide-react";
 
 function LabaykYaHusayn() {
   return (
@@ -8,6 +9,7 @@ function LabaykYaHusayn() {
       <div className="labayk-container">
         <MessagesSection />
         <Pagination />
+        <div className="labayk-divider"></div>
         <MessagesForm />
       </div>
     </>
