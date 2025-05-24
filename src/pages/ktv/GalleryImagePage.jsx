@@ -13,11 +13,13 @@ function GalleryImagePage() {
   console.log(params.id);
   return (
     <>
-      <div className="gallery-image-page">
-        <ImageInfo />
-        <KtvTitleReverse title={"الصور"} />
+      <div className="outlet-container">
+        <div className="gallery-image-page">
+          <ImageInfo />
+          <KtvTitleReverse title={"الصور"} />
 
-        <Gallery />
+          <Gallery />
+        </div>
       </div>
     </>
   );

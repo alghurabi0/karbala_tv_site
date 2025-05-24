@@ -59,11 +59,13 @@ function ProgramsCurriculumPage() {
   ];
   return (
     <>
-      <div className="programs">
-        <KtvTitleReverse title={"منهاج البرامج"} />
-        {programs.map((program) => (
-          <ProgramCurriculumTile program={program} key={program.id} />
-        ))}
+      <div className="outlet-container">
+        <div className="programs">
+          <KtvTitleReverse title={"منهاج البرامج"} />
+          {programs.map((program) => (
+            <ProgramCurriculumTile program={program} key={program.id} />
+          ))}
+        </div>
       </div>
     </>
   );

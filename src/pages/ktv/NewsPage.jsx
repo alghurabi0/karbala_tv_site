@@ -4,7 +4,9 @@ import NewsSection from "../../components/ktv/home/NewsSection";
 function NewsPage() {
   return (
     <>
-      <NewsSection />
+      <div className="outlet-container">
+        <NewsSection />
+      </div>
     </>
   );
 }

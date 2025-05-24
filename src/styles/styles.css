@@ -896,6 +896,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   padding-right: 10px;
+  color: black;
 }
 
 .nav-tile:hover {
@@ -960,6 +961,7 @@ body {
   border-right: 3px solid transparent;
   font-size: 14px;
   font-weight: bold;
+  color: black;
 }
 
 .nav-visual-library-category span {
@@ -1763,8 +1765,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 10px;
 }
 
 .recommended-grid {
@@ -2811,6 +2812,24 @@ body {
   left: 20px;
 }
 
+.sat-section--compact .sat-info {
+  font-weight: bold;
+}
+
+.sat-section--compact-overlay {
+  position: absolute;
+  right: 40%;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translate(50%, -50%);
+  z-index: 3;
+  /* width: 114%;
+  height: 116%; */
+  width: 80%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 .sat-dish {
   position: absolute;
   top: 40%;
@@ -2821,7 +2840,7 @@ body {
 }
 
 .sat-info {
-  z-index: 3;
+  z-index: 4;
   line-height: 0.8;
 }
 
@@ -2977,8 +2996,9 @@ body {
   border: none;
   border-radius: 4px;
   background-color: #f5f5f5;
-  color: black;
-  font-size: 1.2rem;
+  color: #c40000;
+  font-size: 1.5rem;
+  line-height: 1.6;
   box-sizing: border-box;
 }
 
@@ -2986,6 +3006,14 @@ body {
 .messages-form textarea::placeholder,
 .messages-form select {
   color: black;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="black" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat left 20px center;
+  padding-right: 30px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
 
 .messages-form select {
@@ -3003,11 +3031,7 @@ body {
   flex-shrink: 0;
 }
 
-.form-actions {
-  text-align: center;
-}
-
-.form-actions button {
+.submit-message {
   background-color: #d20e0d;
   color: white;
   border: none;

@@ -11,17 +11,21 @@ import MessagesSection from "../../components/ktv/home/MessagesSection";
 function KtvHomaPage() {
   return (
     <>
-      {/* Popular Section */}
-      <PopularSection />
-      {/* Satellite Info Section */}
-      {/* <SatelliteInfoSection /> */}
-      <SatelliteHomepage />
-      {/* News Section */}
-      <NewsSection isHome={true} />
+      <div className="outlet-container">
+        {/* Popular Section */}
+        <PopularSection />
+        {/* Satellite Info Section */}
+        {/* <SatelliteInfoSection /> */}
+        <SatelliteHomepage />
+        {/* News Section */}
+        <NewsSection isHome={true} />
+      </div>
       {/* Recommended Section */}
       <RecommendedSection />
-      {/* Messages Section */}
-      <MessagesSection />
+      <div className="outlet-container">
+        {/* Messages Section */}
+        <MessagesSection />
+      </div>
     </>
   );
 }

@@ -200,6 +200,7 @@ export default NavBar;
 export function SatelliteNav() {
   return (
     <div className="sat-section sat-section--compact">
+      {/* <div className="sat-section--compact-overlay"></div> */}
       <img className="sat-dish" src="/images/satellite_dish.svg" alt="Dish" />
       <div className="sat-info">
         <div className="sat-title">تردد المجموعة</div>

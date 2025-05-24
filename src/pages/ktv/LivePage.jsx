@@ -108,78 +108,78 @@ function LivePage() {
   ];
   return (
     <>
-      <div className="live-broadcast-container">
-        <div className="main-content">
-          {/* YouTube Video */}
-          <YouTubeVideo
-            videoUrl={"https://www.youtube.com/embed/U6FjuGhsvsQ"}
-          />
+      <div className="outlet-container">
+        <div className="live-broadcast-container">
+          <div className="main-content">
+            {/* YouTube Video */}
+            <YouTubeVideo
+              videoUrl={"https://www.youtube.com/embed/U6FjuGhsvsQ"}
+            />
 
-          {/* Channels */}
-          <div className="channels">
-            <div className="section-title">
-              <FaVideo color="red" size={30} />
-              <span>البث المباشر</span>
+            {/* Channels */}
+            <div className="channels">
+              <div className="section-title">
+                <FaVideo color="red" size={30} />
+                <span>البث المباشر</span>
+              </div>
+              {liveChannels.map((channel, idx) => (
+                <ProgramTile
+                  key={idx}
+                  title={channel.name}
+                  img={channel.image}
+                  time={""}
+                />
+              ))}
             </div>
-            {liveChannels.map((channel, idx) => (
-              <ProgramTile
-                key={idx}
-                title={channel.name}
-                img={channel.image}
-                time={""}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* <div className="slider-container"> */}
-        <div className="schedule-title">
-          منهاج البرامج ليوم / السبت / 2024/07/27
-        </div>
-
-        <div className="slider-wrapper">
-          {/* Custom buttons */}
-          <div className="swiper-button-prev custom-prev">
-            <FaChevronRight size={24} />
-          </div>
-          <div className="swiper-button-next custom-next">
-            <FaChevronLeft size={24} />
           </div>
 
-          {/* Swiper carousel */}
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={0}
-            breakpoints={{
-              0: {
-                slidesPerView: 3,
-              },
-              550: {
-                slidesPerView: 4,
-              },
-              943: {
-                slidesPerView: 4,
-              },
-              1140: {
-                slidesPerView: 5,
-              },
-            }}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-          >
-            {programs.map((prog, idx) => (
-              <SwiperSlide key={idx}>
-                <ProgramCard prog={prog} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {/* <div className="slider-container"> */}
+          <div className="schedule-title">
+            منهاج البرامج ليوم / السبت / 2024/07/27
+          </div>
+
+          <div className="slider-wrapper">
+            {/* Custom buttons */}
+            <div className="swiper-button-prev custom-prev">
+              <FaChevronRight size={24} />
+            </div>
+            <div className="swiper-button-next custom-next">
+              <FaChevronLeft size={24} />
+            </div>
+
+            {/* Swiper carousel */}
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={0}
+              breakpoints={{
+                0: {
+                  slidesPerView: 3,
+                },
+                550: {
+                  slidesPerView: 4,
+                },
+                943: {
+                  slidesPerView: 4,
+                },
+                1140: {
+                  slidesPerView: 5,
+                },
+              }}
+              navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev",
+              }}
+            >
+              {programs.map((prog, idx) => (
+                <SwiperSlide key={idx}>
+                  <ProgramCard prog={prog} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          {/* </div> */}
         </div>
-        {/* </div> */}
       </div>
-
-      <ProgramsCurriculumPage />
     </>
   );
 }

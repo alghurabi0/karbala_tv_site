@@ -1,5 +1,6 @@
 import React from "react";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 function NavVisualLibrary() {
   const categories = [
@@ -49,14 +50,15 @@ function NavVisualLibrary() {
           <Title title="اخترنا لكم" />
           <div className="nav-chosen-for-you-list">
             {videos.map((video) => (
-              <ListTile
-                key={video.id}
-                title={video.time}
-                date={video.date}
-                time={video.time}
-                views={video.views}
-                img={video.img}
-              />
+              <Link key={video.id} to={`/visual-library/1/1`}>
+                <ListTile
+                  title={video.time}
+                  date={video.date}
+                  time={video.time}
+                  views={video.view}
+                  img={video.img}
+                />
+              </Link>
             ))}
           </div>
         </div>
@@ -65,9 +67,11 @@ function NavVisualLibrary() {
           <Title title="اقسام المكتبة المرئية" />
           <div className="nav-visual-library-categories-list">
             {categories.map((category) => (
-              <p className="nav-visual-library-category" key={category.id}>
-                <span>{category.title}</span>
-              </p>
+              <Link to={`visual-library/${category.title}`} key={category.id}>
+                <p className="nav-visual-library-category">
+                  <span>{category.title}</span>
+                </p>
+              </Link>
             ))}
           </div>
         </div>

@@ -12,9 +12,7 @@ function Layout() {
         <TopBar />
         {/* Navigation bar */}
         <NavBar />
-        <div className="outlet-container">
-          <Outlet />
-        </div>
+        <Outlet />
         {/* Footer */}
         <Footer />
       </div>

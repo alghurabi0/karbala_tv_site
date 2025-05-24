@@ -6,11 +6,13 @@ import { Divide } from "lucide-react";
 function LabaykYaHusayn() {
   return (
     <>
-      <div className="labayk-container">
-        <MessagesSection />
-        <Pagination />
-        <div className="labayk-divider"></div>
-        <MessagesForm />
+      <div className="outlet-container">
+        <div className="labayk-container">
+          <MessagesSection />
+          <Pagination />
+          <div className="labayk-divider"></div>
+          <MessagesForm />
+        </div>
       </div>
     </>
   );
@@ -51,10 +53,9 @@ function MessagesForm() {
         <div className="form-group captcha-group">
           <input type="text" placeholder="ادخل الرمز *" required />
           <img src="/images/captcha.png" alt="captcha" />
-        </div>
-
-        <div className="form-actions">
-          <button type="submit">لبيك ياحسين</button>
+          <button className="submit-message" type="submit">
+            لبيك ياحسين
+          </button>
         </div>
       </form>
     </section>

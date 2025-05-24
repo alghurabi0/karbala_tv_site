@@ -16,30 +16,32 @@ function VisualLibraryPage({
 
   return (
     <>
-      <div className="visual-library-page">
-        {/* Reverse Title */}
-        <KtvTitleReverse title={"المكتبة المرئية"} />
+      <div className="outlet-container">
+        <div className="visual-library-page">
+          {/* Reverse Title */}
+          <KtvTitleReverse title={"المكتبة المرئية"} />
 
-        {/* Categories */}
-        <VisualLibraryCategories category={category} />
+          {/* Categories */}
+          <VisualLibraryCategories category={category} />
 
-        {/* program description section if inside a program */}
-        {isInsideProgram ? <ProgramDescription /> : ""}
+          {/* program description section if inside a program */}
+          {isInsideProgram ? <ProgramDescription /> : ""}
 
-        {/* Category Description if inside a Category */}
-        {isInsideCategory ? <CategoryDescription /> : ""}
+          {/* Category Description if inside a Category */}
+          {isInsideCategory ? <CategoryDescription /> : ""}
 
-        {/* Episode Video and Description if inside an Episode */}
-        {isInsideEpidose ? <EpisodeData /> : ""}
+          {/* Episode Video and Description if inside an Episode */}
+          {isInsideEpidose ? <EpisodeData /> : ""}
 
-        {/* Recommended For You (اخترنا لكم) Section */}
-        <RecommendedForYouSection
-          isInsideProgram={isInsideProgram}
-          isInsideEpidose={isInsideEpidose}
-        />
+          {/* Recommended For You (اخترنا لكم) Section */}
+          <RecommendedForYouSection
+            isInsideProgram={isInsideProgram}
+            isInsideEpidose={isInsideEpidose}
+          />
 
-        {/* Pagination row */}
-        <Pagination />
+          {/* Pagination row */}
+          <Pagination />
+        </div>
       </div>
     </>
   );
@@ -275,18 +277,20 @@ function RecommendedForYouSection({
           {isInsideProgram || isInsideEpidose
             ? data.map((item) => (
                 <Link
+                  key={item.id}
                   className="program-link"
                   to={`/visual-library/${item.category}/${item.title}/${item.id}`}
                 >
-                  <EpisodeCard key={item.id} />
+                  <EpisodeCard />
                 </Link>
               ))
             : data.map((item) => (
                 <Link
+                  key={item.id}
                   className="program-link"
                   to={`/visual-library/${item.category}/${item.title}`}
                 >
-                  <RecommendedCard item={item} key={item.id} />
+                  <RecommendedCard item={item} />
                 </Link>
               ))}
         </div>

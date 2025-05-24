@@ -11,13 +11,15 @@ import "swiper/css";
 function GalleryPage() {
   return (
     <>
-      <div className="gallery-page">
-        <KtvTitleReverse title={"الصور"} />
-        {/* Carousel */}
-        <ImageCarousel />
+      <div className="outlet-container">
+        <div className="gallery-page">
+          <KtvTitleReverse title={"الصور"} />
+          {/* Carousel */}
+          <ImageCarousel />
 
-        {/* Gallery */}
-        <Gallery />
+          {/* Gallery */}
+          <Gallery />
+        </div>
       </div>
     </>
   );

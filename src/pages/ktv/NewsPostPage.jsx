@@ -4,7 +4,9 @@ import NewsSection from "../../components/ktv/home/NewsSection";
 function NewsPostPage() {
   return (
     <>
-      <NewsSection isInsidePost={true} />
+      <div className="outlet-container">
+        <NewsSection isInsidePost={true} />
+      </div>
     </>
   );
 }
