@@ -3095,3 +3095,38 @@ body {
     padding: 10px 20px;
   }
 }
+
+.intro-animation {
+  position: fixed;
+  inset: 0;
+  background: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* .animated-svg {
+  width: 80%;
+  height: auto;
+} */
+
+/* .animate-fill {
+  fill: white;
+  animation: fillToBlack 3s ease-in-out forwards;
+} */
+
+svg path {
+  fill: white;
+  animation: fillToBlack 4s ease-in-out forwards;
+}
+
+@keyframes fillToBlack {
+  0% {
+    fill: white;
+  }
+  100% {
+    fill: black;
+  }
+}
